@@ -1,0 +1,46 @@
+extends ./base/base.jade
+
+block link
+ -var selected = 'ich';
+
+block header
+    title Über mich
+
+    link(rel="canonical" href="https://renmuell.github.io/de/me.html")
+    style
+        include ../../assets/css/me.min.css
+
+block title
+    h1 &lt;Über mich/&gt;
+    p
+        | Software Entwickler & Frontend Designer mit einer Passion für UX.
+    br
+    p
+        a(href="https://github.com/renmuell" title="GitHub")
+            i.fab.fa-github.fa-2x
+        a(href="https://codepen.io/renmuell" title="CodePen")
+            i.fab.fa-codepen.fa-2x
+        a(href="https://twitter.com/renmuell" title="Twitter")
+            i.fab.fa-twitter.fa-2x
+        a(href="https://dribbble.com/renmuell" title="Dribbble")
+            i.fab.fa-dribbble.fa-2x
+        a(href="https://renemueller.deviantart.com/" title="DeviantArt")
+            i.fab.fa-deviantart.fa-2x
+        a(href="https://www.xing.com/profile/Rene_Mueller227" title="Xing")
+            i.fab.fa-xing.fa-2x
+
+block content
+    article
+        .title
+            h2.rm_atmo-daytime-color  Hi,
+
+        div(style="overflow:hidden;border-bottom:1px solid #ccc")
+            img.me_black_white.teaser(src=assetsRoot+"img/me_black_white.png" alt="rene black and white")
+
+        .content
+            div 
+                p Ich liebe es zu coden und wunderbare Nutzererlebnise zu designen. Lerne mehr über mich 😀
+
+    article
+        .title
+            h2.rm_atmo-daytime-color  Kommt bald ...

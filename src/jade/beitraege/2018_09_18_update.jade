@@ -1,0 +1,146 @@
+p Dies ist ein großes Update für diese Seite. Ich habe das komplette Backend überarbeitet und ein paar nette Funktionen hinzugefügt.
+
+hr
+h3 Kurz und Knapp:
+hr
+
+ul(style="list-style:dot") 
+    li Neue Webseiten Navigation mit:
+        ul(style="list-style:dot") 
+            li Startseite
+            li Spiel Button, damit man mit den Hintergrund spielen kann
+            li Einstellungen
+                ul(style="list-style:dot") 
+                    li Hintergrund stumm schalten
+                    li Weitere Funktionen hinzufügen oder abschalten
+    li Neue Funktionen
+        ul(style="list-style:dot") 
+            li Teile die Interaktionen auf dem Hintergrund mit allen andern Besuchern
+            li Teile Beiträge per Twitter
+    li Neue Hintergrund-Magie:
+        ul(style="list-style:dot") 
+            li Die Webseite hat ein Build-Script
+            li Beiträge werden in JSON-Format gespeichert
+            li Performance gesteigert
+                ul(style="list-style:dot") 
+                    li Verkleinerung von Skripten/Styles
+                    li Code Abhängigkeiten werden schon im Build-Script geladen und in der Seite intrigiert
+                    li Nur ein paar Beiträge werden am Anfang geladen, der Rest wird nachgeladen
+
+if short == false
+
+    hr
+    h3 Webseiten Navigation:
+    hr
+
+    p Die Webseite ist nun keine One-Page-Webseite mehr, sondern vieles mehr.
+
+    img(src=site_url + "assets/img/update_level_up/new_navbar.png" style="max-height:4em;max-width:100%;display: block;margin: 0 auto;border: 1px solid #ddd;border-radius: 40px;border-bottom-width: 10px;")
+
+    p Vorerst erlaubt diese Navigation den Benutzer, ein schnellen Zugriff auf die Startseite, ein Spielen-Button und ein Link zu den Einstellungen.
+
+    hr
+
+    h4 Startseite:
+
+    p(style="text-align:center") <i class="fas fa-sitemap fa-3x"></i>
+
+    p Jeder Beitrag hat nun seine eigene Seite. Mit den Startseiten-Link, kommt man schnell wieder zum Anfang zurück. Auf der Startseite können nun Auszüge von Beiträge angezeigt werden. Das erlaubt mir längere Beiträge, wie diesen zu schreiben, ohne die Startseite zu überfluten. Auch können nun Beiträge mit Vorschau-Bild per Twitter geteilt werden, da es eine eindeutige URL pro Beitrag gibt.
+
+    hr
+
+    h4 Spielen:
+
+    p(style="text-align:center") <i class="fas fa-child fa-3x"></i>
+
+    p Ich wollte die spielerische Art des Hintergrund mehr hervorheben. Wenn man diesen Button drückt, werden alle Inhalte verkleinert, damit man vollen Zugriff auf den Hintergrund hat. Dies behebt auch den Fehler, das man auf dem Handy, nicht mit den Hintergrund interagieren konnte. Einfach klicken und spaß haben!
+
+    hr
+
+    h4 Einstellungen:
+
+    p(style="text-align:center") <i class="fas fa-user-shield fa-3x"></i>
+
+    p Ich möchte neue Funktionen nicht einfach aufzwingen. Mir ist die sicherheit der Daten der Nutzer sehr wichtig. Funktionen wie der Twitter-Button können das Verhalten des Nutzers aufzeichnen. Ich wollte gern einen Platz, wo der Nutzer die Funktionen die er möchte anschalten kann. Bei jeder Funktion die durch ein externen Dienst ermöglicht wird, wird die Firma und deren Nutzungsbedingungen verlinkt.
+
+    hr
+    h3 Neue Funktionen:
+    hr
+
+    h4 Teile die interaktionen des Hintergrund mit anderen:
+
+    p Wenn diese Funktion aktiviert wird, wird jede Interaktion, mit anderen geteilt, die auch diese Funktion aktiv haben. Dafür benutze ich <a href="https://firebase.google.com/">Google Firebase</a>.
+
+    img(src=site_url + "assets/img/update_level_up/FirebaseRealtimeDatabase.png" style="max-width:100%;display: block;max-height:6em;margin:0 auto")
+    
+    p Dieser Dienst stellt eine real-time Datenbank, mit synchronisation aller Internaktionen, bereit. Ich hoffe bald eure Interaktionen zu sehen!
+
+    hr
+
+    h4 Teile Beiträge per Twitter:
+
+    p Wenn diese Funktion aktiviert wird, erscheint bei jedem Beitrag ein <a href="https://twitter.com/">Twitter</a>-Teilen-Button.
+
+    img(src=site_url + "assets/img/update_level_up/Twitter_Social_Icon_Circle_Color.png" style="max-height:6em;display: block;margin: 0 auto;")
+    
+    p Der Button ist vorgefüllt, mit der URL des Beitrags und einem Text. Des Weiteren hat jede Beitragsseite weitere Informationen für Twitter zur Anzeige, zum Beispiel ein Vorschaubild. Diese kann Twitter benutzen und mit zum Tweet anzeigen.
+
+    hr
+    h3 Neue Hintergrund-Magie:
+    hr
+
+    p Um all diese Funktionen hinzufügen zu können, musste ich meine Webseite komplett umschreiben. Ich liebe die einfach Struktur von <a href="https://pages.github.com/">GitHub Pages</a> um einfache HTML-Seiten anzuzeigen und ich möchten keinen eigenen Server hosten. Ich habe ein Build-Script geschrieben, damit jeder Beitrag einfach und effizient gespeichert werden kann. Dieses System erlaubt es mir, jeden Beitrag auf der Startseite, aber auch auf einer eigenen generierten Seite anzuzeigen ohne den Beitrag zweimal zu schreiben.
+
+    h4 Build-Script:
+
+    p Ich benutze <a href="https://nodejs.org/en/">Node.js</a> mit dem Task-Runner <a href="https://gulpjs.com/">Gulp</a> und der Template-Engine <a href="http://jade-lang.com/">Jade</a>. Das ist nicht alles, weitere Pakete sind:
+
+    ul(style="list-style:dot") 
+        li
+            a(href="https://www.npmjs.com/package/gulp-clean-css") gulp-clean-css
+        li
+            a(href="https://www.npmjs.com/package/gulp-concat") gulp-concat
+        li
+            a(href="https://www.npmjs.com/package/gulp-copy") gulp-copy
+        li
+            a(href="https://www.npmjs.com/package/gulp-data") gulp-data
+        li
+            a(href="https://www.npmjs.com/package/gulp-filter") gulp-filter
+        li
+            a(href="https://www.npmjs.com/package/gulp-google-fonts-base64-css") gulp-google-fonts-base64-css
+        li
+            a(href="https://www.npmjs.com/package/gulp-inject-string") gulp-inject-string
+        li
+            a(href="https://www.npmjs.com/package/gulp-json-transform") gulp-json-transform  
+        li
+            a(href="https://www.npmjs.com/package/gulp-less") gulp-less
+        li
+            a(href="https://www.npmjs.com/package/gulp-rename") gulp-rename
+        li
+            a(href="https://www.npmjs.com/package/gulp-sitemap") gulp-sitemap
+        li
+            a(href="https://www.npmjs.com/package/gulp-uglify") gulp-uglify
+        li
+            a(href="https://www.npmjs.com/package/gulp-jade") gulp-jade
+
+    p Diese Tools erlauben mir meine Beiträge als JSON zu speichern, Scripte & Styles minimieren, externe Schriften zu laden und die Templates in HTML-Dateien zu konvertieren.
+
+    p Dies sind wunderbare Tools, des Weiteren benutzte ich:
+
+    ul(style="list-style:dot") 
+        li
+            a(href="https://github.com/madmurphy/cookies.js") Cookie.js -> um Einstellungen lokal auf den Browser zu sichern
+        li
+            a(href="https://fontawesome.com/") FontAwesome -> Für Icons
+        li
+            a(href="https://codepen.io/mallendeo/pen/eLIiG?editors=1100") pureCheckboxToggle -> Coole Switch-Toggles
+        li
+            a(href="https://fonts.google.com/specimen/Lato") Google Font Lato
+
+    p Vielen Dank an diese Tools.
+
+    p Der komplette Code dieser Webseite ist öffentliche unter <a href="https://github.com/renmuell/renmuell.github.io">GitHub renmuell.github.io</a>.
+
+    hr
+
+    p Das Beitragsbild hatte ich auf meinen Computer herumliegen und ich dachte es trifft den "Level-Up" Charakter des Beitrags sehr gut. Ich habe es am 28.09.2014 gezeichnet, fast vier Jahre her 😬

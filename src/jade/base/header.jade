@@ -1,0 +1,23 @@
+nav
+    ul
+        li(class=selected=="home"?"active":"")
+            a.rm_atmo-daytime-color.rm_atmo-daytime-border-color(href=site_url title="Startseite")
+                i.fa.fa-home
+                span.onlyDestop &nbsp;&nbsp;Startseite
+        li(class=selected=="ich"?"active":"")
+            a.rm_atmo-daytime-color.rm_atmo-daytime-border-color(href=site_url + "ich.html" title="Über mich")
+                i.fas.fa-address-card
+                span.onlyDestop &nbsp;&nbsp;Über mich
+        li(class=selected=="einstellungen"?"active":"")
+            a.rm_atmo-daytime-color.rm_atmo-daytime-border-color(href=site_url + "einstellungen.html" title="Settings")
+                i.fa.fa-cogs
+                span.onlyDestop &nbsp;&nbsp;Einstellungen
+        li
+            a.rm_atmo-daytime-color.rm_atmo-daytime-border-color(id="play_buton" href="#spielen" title="Mit dem Hintergrund interagieren") Spielen
+        li
+            a(href="https://renmuell.github.io/" title="renmuell.github.io")
+                i.flag.flag-us
+
+header.profile
+    img(class="me" src=assetsRoot+"img/me.png" alt="Mein Profilbild")
+    block title

@@ -1,0 +1,43 @@
+doctype html
+html(lang="de")
+    head
+        meta(charset='utf-8')
+        meta(http-equiv="X-UA-Compatible" content="IE=edge")
+        meta(name="viewport" content="width=device-width, initial-scale=1")
+        meta(name="author" content="Rene Müller")
+        
+        meta(http-equiv="X-UA-Compatible" content="IE=edge")
+
+        link(rel="alternate" hreflang="en" href="https://renmuell.github.io/")
+        link(rel="alternate" hreflang="de" href="https://renmuell.github.io/de")
+
+        include ./favicon.jade
+        link(href=assetsRoot+"vendors/fontawesome/css/all.min.css" rel="stylesheet")
+        style
+            include ../../../assets/css/web-fonts.css
+        style
+            include ../../../assets/vendors/flags/flags-custom.min.css
+        style
+            include ../../../assets/css/index.min.css
+        block header
+    body
+        .background
+        main
+            block link
+                -var selected = 'home'
+            include ./header.jade
+            block content
+            include ./footer.jade
+        script
+            include ../../../assets/vendors/cookies.js/cookies.min.js
+        script
+            include ../../../assets/vendors/rm_atmo/rm_atmo.min.js
+        script
+             include ../../../assets/js/background.min.js
+        script
+             include ../../../assets/js/background.firebase.min.js
+        script.
+            console.log("Hey, was ist Heute für ein Tag? Twittere an @renmuell 😋")
+        script
+            include ../../../assets/js/play.min.js
+        block footer

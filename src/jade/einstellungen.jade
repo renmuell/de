@@ -1,0 +1,68 @@
+extends ./base/base.jade
+
+block link
+ -var selected = 'einstellungen';
+
+block header
+    title Einstellungen
+
+    link(rel="canonical" href="https://renmuell.github.io/de/einstellungen.html")
+
+    style
+        include ../../assets/css/settings.min.css
+    style
+        include ../../assets/vendors/pureCheckboxToggle/pureCheckboxToggle.min.css
+
+block title
+    h1 &lt;Einstellungen/&gt;
+    p
+        | Aktiviere weitere Funkionen oder setzte Einstellungen für diese Webseite.
+
+block content
+
+    article
+        .grid
+            .text 
+                h2.rm_atmo-daytime-color Cookie-Speicherung
+                p Erlauben Sie die Speicherung von Einstellungen in Cookies, damit weiter Funktionen aktiviert werden können.
+            .option
+                input#setting_allow_cookies.tgl.tgl-ios(type = "checkbox")
+                label.tgl-btn(data-tg-off = "Aus", data-tg-on = "An", for = "setting_allow_cookies")
+    article#mute_background.disabled
+        .grid
+            .text 
+                h2.rm_atmo-daytime-color Hintergrund stummschalten
+                p Den Ton von eigenen Interaktionen stummschalten.
+            .option
+                input#setting_mute_background.tgl.tgl-ios(type = "checkbox")
+                label.tgl-btn(data-tg-off = "Aus", data-tg-on = "An", for = "setting_mute_background")
+    article#sharing_firebase.disabled
+        .grid
+            .text 
+                h2.rm_atmo-daytime-color Teilen des Hintergrundes mit Firebase
+                p Erlauben Sie das Teilen von Interaktionen auf den Hintergrund mit andern Besuchern und ermöglichen Sie es deren Interaktionen zu sehen. 
+                p Für dieses Funktion, benutzte ich Firebase, lesen Sie die Nutzungsbedingungen hier: <a href="https://firebase.google.com/terms/">https://firebase.google.com/terms/</a>
+            .option
+                input#setting_sharing_firebase.tgl.tgl-ios(type = "checkbox")
+                label.tgl-btn(data-tg-off = "Aus", data-tg-on = "An", for = "setting_sharing_firebase")
+            #text_setting_mute_sharing_firebase.text.disabled
+                h2.rm_atmo-daytime-color Teilen des Hintergrundes stummschalten
+                p Den Ton von andern Benutzern stummschalten.
+            #option_setting_mute_sharing_firebase.option.disabled
+                input#setting_mute_sharing_firebase.tgl.tgl-ios(type = "checkbox", checked="true")
+                label.tgl-btn(data-tg-off = "Aus", data-tg-on = "An", for = "setting_mute_sharing_firebase")
+    article#sharing_twitter.disabled
+        .grid
+            .text 
+                h2.rm_atmo-daytime-color Teilen mitTwitter
+                p Erlauben Sie das laden des Twitter-Teilen-Buttons zu den Beiträgen.
+                p Für dieses Funktion, benutzte ich Twitter, lesen Sie die Nutzungsbedingungen hier: <a href="https://twitter.com/de/tos">https://twitter.com/de/tos</a>
+            .option
+                input#setting_sharing_twitter.tgl.tgl-ios(type = "checkbox")
+                label.tgl-btn(data-tg-off = "Aus", data-tg-on = "An", for = "setting_sharing_twitter")
+
+block footer
+    script
+        include ../../assets/vendors/cookies.js/cookies.min.js
+    script
+        include ../../assets/js/settings.min.js
