@@ -13,7 +13,8 @@
         muted: muted,
         enableCosmosControl: true,
         showCosmosControl: false,
-        renderCss: true
+        renderCss: true,
+        resetTextCosmosControl: "Zurück"
     })
 
 }())
